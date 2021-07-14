@@ -21,3 +21,20 @@ isolateIt(["1234","56789"]) should return ["12|34","56|89"]
 
 a little hint: Flexible use of slice() Will make the work more simple.
 */ 
+/*
+          par arr, ab|cd
+          
+*/ 
+function isolateIt(arr){
+          return arr.map(s=>s
+                                        .slice(0, s.length/2)
+                                        +"|"
+                                        +s.slice(-s.length/2));
+}
+
+
+console.log(isolateIt(["abcd","efgh"]))
+
+console.log(isolateIt(["abcde","fghij"]) )
+
+console.log(isolateIt(["1234","56789"])) 
