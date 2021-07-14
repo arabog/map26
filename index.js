@@ -25,16 +25,29 @@ a little hint: Flexible use of slice() Will make the work more simple.
           par arr, ab|cd
           
 */ 
+// function isolateIt(arr){
+//           return arr.map(s=>s
+//                                         .slice(0, s.length/2)
+//                                         +"|"
+//                                         +s.slice(-s.length/2));
+// }
+
+// 2nd soln
 function isolateIt(arr){
-          return arr.map(s=>s
-                                        .slice(0, s.length/2)
-                                        +"|"
-                                        +s.slice(-s.length/2));
+          var array = arr.map((item) => {
+                    var itemLength = item.length;
+
+                    if(itemLength % 2 === 0) {
+                              return item.slice(0, itemLength/2) + "|" + item.slice(itemLength/2);
+                    } else {
+                              return item.slice(0,itemLength/2) + "|" + item.slice(itemLength/2 +1);
+                    } 
+
+          });
+
+          return array;
 }
 
-
 console.log(isolateIt(["abcd","efgh"]))
-
 console.log(isolateIt(["abcde","fghij"]) )
-
 console.log(isolateIt(["1234","56789"])) 
